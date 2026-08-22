@@ -19,16 +19,16 @@ zstyle ':completion:*' menu select
 
 PROMPT='%B%~%b %# '
 
-bindkey -e
+bindkey -v
 
-bindkey '^[[H'    beginning-of-line       # home
-bindkey '^[[F'    end-of-line             # end
-bindkey '^[[3~'   delete-char             # delete
-bindkey '^[[1;5C' forward-word            # ctrl + right arrow
-bindkey '^[[1;5D' backward-word           # ctrl + left arrow
-bindkey '^[[A'    up-line-or-history      # up arrow
-bindkey '^[[B'    down-line-or-history    # down arrow
-bindkey '^R'      history-incremental-search-backward # ctrl + r
+# bindkey '^[[H'    beginning-of-line       # home
+# bindkey '^[[F'    end-of-line             # end
+# bindkey '^[[3~'   delete-char             # delete
+# bindkey '^[[1;5C' forward-word            # ctrl + right arrow
+# bindkey '^[[1;5D' backward-word           # ctrl + left arrow
+# bindkey '^[[A'    up-line-or-history      # up arrow
+# bindkey '^[[B'    down-line-or-history    # down arrow
+# bindkey '^R'      history-incremental-search-backward # ctrl + r
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -43,6 +43,4 @@ function zvm_after_init() {
     ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 }
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-if [ -f "$HOME/.zshrc.local" ]; then
-    source "$HOME/.zshrc.local"
-fi
+source ~/.zshrc.local
