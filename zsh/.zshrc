@@ -37,12 +37,13 @@ export https_proxy="http://192.168.42.129:9090"
 export HTTP_PROXY="http://192.168.42.129:9090"
 export HTTPS_PROXY="http://192.168.42.129:9090"
 
-alias uns="unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
-alias neo="fastfetch --config examples/13.jsonc"
-alias autorm="sudo pacman -Rns $(pacman -Qdtq)"
+alias uns='unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY'
+alias neo='fastfetch --config examples/13.jsonc'
+alias autorm='sudo pacman -Rns $(pacman -Qdtq)'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias gall='git add . && git commit -m "" --allow-empty-message && git push -u origin main'
+alias p='proxychains -q'
 # alias notes="ln -s /run/media/user/OS/Users/cat/Desktop/tryintnottousemybrain/notes ~/notes && cd ~/notes"
 
 autoload -Uz edit-command-line
