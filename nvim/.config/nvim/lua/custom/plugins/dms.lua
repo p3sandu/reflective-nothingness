@@ -1,0 +1,30 @@
+-- vim.pack.add({ "https://github.com/AvengeMedia/base46" })
+-- require("base46").setup()
+-- vim.cmd.colorscheme("dms")
+
+-- set transparency
+-- local bg_groups = {
+--     "Normal",
+--     "NormalFloat",
+--     "NormalNC",
+--     "SignColumn",
+--     -- "FoldColumn",
+--     -- "LineNr",
+--     -- "CursorLineNr",
+--     "TabLineFill",
+--     "MiniTablineFill",
+--     "MiniTablineHidden",
+--     "MiniTablineVisible",
+-- }
+--
+-- for _, group in ipairs(bg_groups) do
+--     vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+-- end
+-- [[ Colorscheme ]]
+-- You can easily change to a different colorscheme.
+-- Change the name of the colorscheme plugin below, and then
+-- change the command under that to load whatever the name of that colorscheme is.
+--
+-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+
+-- vim.cmd.colorscheme 'tokyonight-night'

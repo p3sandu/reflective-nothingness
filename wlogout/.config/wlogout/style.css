@@ -22,16 +22,20 @@ button {
     background-position: center;
     background-size: 25%;
 }
+window { background-color: rgba(31, 31, 40, 0.85); }
 
-/* Hover & Active States */
-button:focus, 
-button:active, 
-button:hover {
-    background-color: #bb9af7; /* Magenta/Purple Accent */
-    color: #1a1b26;
-    border-color: #7aa2f7; /* Blue Accent */
-    outline-style: none;
-    background-size: 35%; /* Subtle icon zoom on hover */
+button {
+    border-radius: 6px;
+    border: 1px solid #363646;
+    color: #dcd7ba;
+    background-color: #16161d;
+    margin: 8px;
+}
+
+button:focus, button:active, button:hover {
+    background-color: #2d4f67;
+    border-color: #7e9cd8;
+    color: #e6c384;
 }
 
 /* Icon Definitions */

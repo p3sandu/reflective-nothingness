@@ -1,20 +1,20 @@
-/* tokyonight xd */
-@define-color cursor #a9b1d6;
-@define-color background #1a1b26;
-@define-color foreground #787c99; 
-@define-color color7     #9699b0;
-@define-color color15    #acb0d0;
-@define-color color0  #15161e;
-@define-color color1  #f7768e;
-@define-color color2  #9ece6a;
-@define-color color3  #e0af68;
-@define-color color4  #7aa2f7;
-@define-color color5  #bb9af7;
-@define-color color6  #7dcfff;
-@define-color color8  #414868;
-@define-color color9  #f7768e;
-@define-color color10 #9ece6a;
-@define-color color11 #e0af68;
-@define-color color12 #7aa2f7;
-@define-color color13 #bb9af7;
-@define-color color14 #7dcfff;
+@define-color background #181616;
+@define-color foreground #c8c093;
+
+@define-color color0  #0d0c0c; /* Dragon Black */
+@define-color color1  #c4746e; /* Dragon Red */
+@define-color color2  #8a9a7b; /* Dragon Green */
+@define-color color3  #c0a36e; /* Dragon Yellow/Orange */
+@define-color color4  #8ba4b0; /* Dragon Blue */
+@define-color color5  #938aa9; /* Dragon Violet */
+@define-color color6  #8ea4a2; /* Dragon Aqua */
+@define-color color7  #c8c093; /* Dragon White */
+
+@define-color color8  #282727; /* Module BG / Dragon Surface */
+@define-color color9  #e46876; /* Bright Red */
+@define-color color10 #87a987; /* Bright Green */
+@define-color color11 #e6c384; /* Bright Yellow */
+@define-color color12 #7fb4ca; /* Bright Blue */
+@define-color color13 #a292a3; /* Bright Pink */
+@define-color color14 #7aaa06; /* Bright Aqua */
+@define-color color15 #e6e0c2; /* Bright White */

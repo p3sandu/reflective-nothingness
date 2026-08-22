@@ -1,32 +1,30 @@
-// Niri configuration — merged: DMS shell essentials + personal overrides
-// KDL format: https://kdl.dev | Niri wiki: https://github.com/YaLTeR/niri/wiki
-
-// ── DMS shell: suppress failed-config notification ──────────────────────────
+// ── System Notifications ─────────────────────────────────────────────────────
 config-notification {
     disable-failed
 }
 
-// ── General ──────────────────────────────────────────────────────────────────
+// ── Global Settings ──────────────────────────────────────────────────────────
 prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // ── Startup Applications ─────────────────────────────────────────────────────
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
-// spawn-sh-at-startup "waybar"
-spawn-at-startup "xwayland-satellite &"
-// spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
-// spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-// spawn-at-startup "batsignal" "-w" "40" "-c" "20" "-d" "15" "-p"
-// spawn-sh-at-startup "swaybg -m fill -i /home/cat/dotfiles/walls/mitsuha.png"
+spawn-sh-at-startup "waybar"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/wallhaven-g7xrrd.jpg"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+spawn-at-startup "batsignal" "-w" "40" "-c" "30" "-d" "20" "-p"
 
-// ── Output ────────────────────────────────────────────────────────────────────
+// ── Output Configuration ─────────────────────────────────────────────────────
 output "eDP-1" {
-    mode "1920x1080@60.024"
+    mode "1920x1080@60.002"
     variable-refresh-rate on-demand=true
-    scale 1
+    scale 1.25
+    transform "normal"
+    position x=0 y=0
 }
 
-// ── Input ─────────────────────────────────────────────────────────────────────
+// ── Input Settings ───────────────────────────────────────────────────────────
 input {
     focus-follows-mouse
 
@@ -41,7 +39,7 @@ input {
     }
 
     mouse {
-        scroll-factor 2
+        scroll-factor 1
         accel-profile "flat"
     }
 
@@ -53,27 +51,23 @@ input {
     }
 }
 
-// ── Hotkey overlay ────────────────────────────────────────────────────────────
 hotkey-overlay {
     skip-at-startup
 }
 
-// ── Gestures ──────────────────────────────────────────────────────────────────
 gestures {
     hot-corners {
         off
     }
 }
 
-// ── Cursor ────────────────────────────────────────────────────────────────────
 cursor {
-    xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
     hide-when-typing
     hide-after-inactive-ms 5000
 }
 
-// ── Overview ──────────────────────────────────────────────────────────────────
+// ── Workspaces & Overview ────────────────────────────────────────────────────
 overview {
     backdrop-color "#1E1E2E"
     workspace-shadow {
@@ -81,7 +75,6 @@ overview {
     }
 }
 
-// -- Workspaces ----------------------
 workspace "1"
 workspace "2"
 workspace "3"
@@ -92,16 +85,12 @@ workspace "7"
 workspace "8"
 workspace "9"
 
-// ── Binds ─────────────────────────────────────────────────────────────────────
+// ── Binds ─────────────────────────────────────────────────────
 binds {
-    // Shortcuts Panel
-    // MOD+SHIFT+ESCAPE { show-hotkey-overlay; }
-
     // Application Shortcuts
-    // MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn-sh "foot"; }
-		// MOD+SHIFT+Q hotkey-overlay-title="Open powermenu: wlogout" { spawn-sh "pgrep -x wlogout >/dev/null || wlogout"; }
-    // MOD+D hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "pgrep -x wofi >/dev/null || wofi"; }
-    MOD+B hotkey-overlay-title="Open Browser: librewolf" { spawn-sh "librewolf"; }
+    MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn "foot"; }
+    MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn "wofi" "--show" "drun"; }
+    MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn-sh "firefox"; }
     MOD+E hotkey-overlay-title="File Manager: Thunar" { spawn-sh "thunar"; }
 
     // Media Keys
@@ -198,8 +187,8 @@ binds {
     MOD+TAB { focus-workspace-previous; }
 
     // Layout Controls
-    MOD+C       { center-column; }
-    MOD+CTRL+C  { center-visible-columns; }
+    MOD+C        { center-column; }
+    MOD+CTRL+C   { center-visible-columns; }
     MOD+BRACKETLEFT  { set-column-width "-10%"; }
     MOD+BRACKETRIGHT { set-column-width "+10%"; }
     MOD+SHIFT+BRACKETLEFT  { set-window-height "-10%"; }
@@ -208,23 +197,21 @@ binds {
     MOD+CTRL+WHEELSCROLLUP   { set-window-height "+5%"; }
 
     // Window Modes
-    MOD+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    MOD+SHIFT+F { fullscreen-window; }
-    MOD+F       { maximize-column; }
+    MOD+V        { toggle-window-floating; }
+    Mod+Shift+V  { switch-focus-between-floating-and-tiling; }
+    MOD+SHIFT+F  { fullscreen-window; }
+    MOD+F        { maximize-column; }
 
     // Utils
-    MOD+SHIFT+S { spawn "~/dotfiles/scripts/ss_satty.sh"; }
+    MOD+SHIFT+S { spawn-sh "~/.local/bin/screenshot.sh"; }
     PRINT       { screenshot; }
     SHIFT+PRINT { screenshot-screen write-to-disk=true; }
     MOD+CTRL+S  { screenshot-window write-to-disk=true; }
 
-    // Application Restarts
-    // MOD+SHIFT+W { spawn "sh" "-c" "pgrep -x waybar >/dev/null && killall waybar || waybar -c /home/cat/dotfiles/waybar/.config/waybar/config.jsonc -s /home/cat/dotfiles/waybar/.config/waybar/style.css &"; }
     Mod+Shift+E { quit; }
 }
 
-// ── DMS shell: Alt+Tab (overrides MOD+TAB default, disables Super+Tab) ────────
+// ── Window Switcher Override (Alt+Tab) ───────────────────────────────────────
 recent-windows {
     binds {
         Alt+Tab         { next-window scope="output"; }
@@ -234,9 +221,9 @@ recent-windows {
     }
 }
 
-// ── Layout ────────────────────────────────────────────────────────────────────
+// ── Layout Style ─────────────────────────────────────────────────────────────
 layout {
-    gaps 5
+    gaps 3
     center-focused-column "never"
     background-color "transparent"
 
@@ -245,14 +232,13 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
+    
+    default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 1.5
-        active-color "#7aa2f7"
-    }
-
-    border {
-        off
+        width 1
+        active-color "#7e9cd8"
+        inactive-color "#2a2a37"
     }
 
     insert-hint {
@@ -261,17 +247,11 @@ layout {
     }
 
     shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+        off
+        color "#090618a0"
     }
 
     struts {
-        top -1
-        bottom 0
-        left 0
-        right 0
     }
 }
 
@@ -336,26 +316,17 @@ environment {
 }
 
 // ── Layer Rules ───────────────────────────────────────────────────────────────
-
-// Wallpaper: stationary, not scrolling with workspaces
 layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
 
-// DMS shell: quickshell layer
-layer-rule {
-    match namespace="^quickshell$"
-    place-within-backdrop true
-}
-
-// Waybar: glassmorphism style
 layer-rule {
     match namespace="waybar"
     match at-startup=true
     match layer="top"
 
-    opacity 0.8
+    opacity 1.0
     shadow {
         on
         softness 40
@@ -364,8 +335,8 @@ layer-rule {
         draw-behind-window true
         color "#00000064"
     }
+
     geometry-corner-radius 15
-    place-within-backdrop true
 
     popups {
         opacity 0.8
@@ -378,10 +349,8 @@ layer-rule {
     }
 }
 
-// Wofi launcher
 layer-rule {
     match namespace="^wofi$"
-    baba-is-float true
     background-effect {
         blur true
         xray false
@@ -389,18 +358,17 @@ layer-rule {
 }
 
 // ── Window Rules ──────────────────────────────────────────────────────────────
-
-// Global window appearance (excluding mako notifications)
+window-rule {
+    geometry-corner-radius 13
+    clip-to-geometry true
+}
 window-rule {
     exclude app-id=r#"^mako$"#
-
     geometry-corner-radius 0
     clip-to-geometry true
-
     shadow {
         on
     }
-
     background-effect {
         xray false
         blur true
@@ -410,18 +378,12 @@ window-rule {
 }
 
 window-rule {
-	match app-id=r#"^librewolf$"#
-	match app-id=r#"^brave-browser$"#
-	open-on-workspace "3"
+    match app-id=r#"^librewolf$"#
+    match app-id=r#"^firefox$"#
+    match app-id=r#"^brave-browser$"#
+    open-on-workspace "3"
 }
 
-// WezTerm: empty default width (DMS shell fix for initial configure bug)
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// GNOME apps styling
 window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
@@ -429,20 +391,11 @@ window-rule {
     clip-to-geometry true
 }
 
-// Floating windows: PiP, Burp, recording UI, DMS shell apps
 window-rule {
-    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
-    match app-id=r#"brave$"# title="^Picture-in-Picture$"
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"burp-StartBurp$"#
-    match app-id=r#"gsr-ui$"#
-    match app-id=r#"zoom"#
-    match app-id=r#"org.quickshell$"#
-    match app-id=r#"com.danklinux.dms$"#
     open-floating true
 }
 
-// File dialogs
 window-rule {
     match title=r#".*(Open|Save|Select).*"#
     match title=r#".*File.*"#
@@ -453,32 +406,18 @@ window-rule {
     max-height 1000
 }
 
-// System dialogs
 window-rule {
     match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
     match app-id=r#"zenity"#
     open-floating true
 }
 
-// Authentication / polkit
 window-rule {
     match app-id=r#"org\.kde\.polkit-kde-authentication-agent-1"#
     match title=r#".*Authentication.*"#
     open-floating true
 }
 
-// Password managers
-window-rule {
-    match app-id=r#"org\.keepassxc\.KeePassXC"# title=r#".*Auto-Type.*"#
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"Bitwarden"# title=r#".*unlock.*"#
-    open-floating true
-}
-
-// Network / Bluetooth / Audio
 window-rule {
     match app-id=r#"nm-connection-editor"#
     match app-id=r#"blueman-manager"#
@@ -486,44 +425,17 @@ window-rule {
     open-floating true
 }
 
-// Steam
 window-rule {
-    match app-id=r#"steam"# title=r#".*(Friends|Settings|Properties).*"#
+    match title=r#".*Sign in - Google Accounts — Firefox"#
     open-floating true
 }
 
 window-rule {
-    match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-    open-focused false
-}
-
-// Sign-in popup
-window-rule {
-    match title=r#".*Sign in - Google Accounts — Librewolf"#
-    open-floating true
-}
-
-// Terminal / browser apps: no border-with-background
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    match app-id="Alacritty"
     match app-id="foot"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
-    match app-id="kitty"
     draw-border-with-background false
 }
 
-// ── DMS shell: debug ──────────────────────────────────────────────────────────
+// ── Debug Configuration ──────────────────────────────────────────────────────
 debug {
     honor-xdg-activation-with-invalid-serial
 }
-
-// ── DMS shell: includes (must come last) ─────────────────────────────────────
-include "dms/colors.kdl"
-include "dms/layout.kdl"
-include "dms/alttab.kdl"
-include "dms/binds.kdl"
-include "dms/outputs.kdl"
-include "dms/cursor.kdl"
