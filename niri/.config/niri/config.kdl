@@ -29,8 +29,8 @@ input {
     focus-follows-mouse
 
     keyboard {
-        repeat-delay 250
-        repeat-rate 35
+        repeat-delay 200
+        repeat-rate 30
         xkb {
             layout "us"
             // options "caps:escape"
@@ -211,7 +211,7 @@ binds {
     Mod+Shift+E { quit; }
 }
 
-// ── Window Switcher Override (Alt+Tab) ───────────────────────────────────────
+// ── Window Switcher Override ───────────────────────────────────────
 recent-windows {
     binds {
         Alt+Tab         { next-window scope="output"; }
@@ -236,8 +236,9 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 1
-        active-color "#7e9cd8"
+        on
+        width 1.5
+        active-gradient from="#938aa9" to="#363646" angle=45
         inactive-color "#2a2a37"
     }
 

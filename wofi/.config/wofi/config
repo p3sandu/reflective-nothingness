@@ -7,7 +7,7 @@ columns=1
 dynamic_lines=false
 
 # icons
-allow_images=true
+allow_images=false
 image_size=36
 
 # search & UX
