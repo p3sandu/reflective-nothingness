@@ -9,7 +9,6 @@
     min-height: 0;
 }
 
-/* Make main window and parent container groups completely transparent */
 window#waybar,
 .modules-left,
 .modules-center,
@@ -19,7 +18,6 @@ window#waybar,
     border: none;
 }
 
-/* Turn EVERY module into its own floating island pill */
 #custom-launcher,
 #workspaces,
 #cava,
@@ -47,7 +45,6 @@ window#waybar,
     color: @foreground;
 }
 
-/* Controls Drawer Group (keeps inner drawer items grouped inside one island) */
 #group-controls {
     background-color: @color0;
     border: 1px solid @color8;
@@ -62,7 +59,6 @@ window#waybar,
     margin: 0;
 }
 
-/* Module-specific accent adjustments */
 #custom-launcher {
     color: @color4;
     padding-left: 8px;
@@ -103,7 +99,6 @@ window#waybar,
     padding-right: 8px;
 }
 
-/* Subtle Hover States for individual islands */
 #custom-power:hover,
 #battery:hover,
 #pulseaudio:hover,
@@ -116,7 +111,6 @@ window#waybar,
     color: @color11;
 }
 
-/* Tooltips */
 tooltip {
     background: @color0;
     border: 1px solid @color8;

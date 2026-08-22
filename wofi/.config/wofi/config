@@ -1,25 +1,16 @@
-# mode & placement
 show=drun
 location=center
-width=700
+width=650
 lines=8
 columns=1
 dynamic_lines=false
 
-# icons
 allow_images=false
 image_size=36
 
-# search & UX
-# matching=fuzzy
 insensitive=true
-hide_scroll=false
-prompt=
+hide_scroll=true
 
-# terminal
-term=foot
-
-# keybinds (vim-ish)
 key_up=Ctrl-p
 key_down=Ctrl-n
 key_left=Ctrl-h
@@ -28,5 +19,4 @@ key_submit=Return
 key_forward=Tab
 key_backward=Shift-ISO_Left_Tab
 
-# stylesheet
 style=/home/user/.config/wofi/style.css

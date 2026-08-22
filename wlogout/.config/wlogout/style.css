@@ -1,44 +1,31 @@
-/* Reset and Global Styles */
 * {
     background-image: none;
     box-shadow: none;
     font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
 }
 
-/* The Overlay Window */
 window {
-    background-color: rgba(26, 27, 38, 0.85); /* Tokyo Night Background with Transparency */
+    background-color: rgba(31, 31, 40, 0.85);
 }
 
-/* Button Styling */
 button {
-    border-radius: 20px;
-    border: 2px solid #414868;
-    color: #c0caf5;
-    background-color: #24283b;
-    margin: 15px;
-    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.4); /* Smooth pop effect */
+    border-radius: 12px;
+    border: 1px solid #363646;
+    color: #DCD7BA;
+    background-color: #16161D;
+    margin: 12px;
+    transition: all 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 25%;
-}
-window { background-color: rgba(31, 31, 40, 0.85); }
-
-button {
-    border-radius: 6px;
-    border: 1px solid #363646;
-    color: #dcd7ba;
-    background-color: #16161d;
-    margin: 8px;
+    background-size: 28%;
 }
 
 button:focus, button:active, button:hover {
-    background-color: #2d4f67;
-    border-color: #7e9cd8;
-    color: #e6c384;
+    background-color: #2D4F67;
+    border-color: #7E9CD8;
+    color: #E6C384;
 }
 
-/* Icon Definitions */
 #lock {
     background-image: image(url("/usr/share/wlogout/icons/lock.png"));
 }

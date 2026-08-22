@@ -1,13 +1,10 @@
-// ── System Notifications ─────────────────────────────────────────────────────
 config-notification {
     disable-failed
 }
 
-// ── Global Settings ──────────────────────────────────────────────────────────
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// ── Startup Applications ─────────────────────────────────────────────────────
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
@@ -15,7 +12,6 @@ spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/wallhaven-g7xrr
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "batsignal" "-w" "40" "-c" "30" "-d" "20" "-p"
 
-// ── Output Configuration ─────────────────────────────────────────────────────
 output "eDP-1" {
     mode "1920x1080@60.002"
     variable-refresh-rate on-demand=true
@@ -24,7 +20,6 @@ output "eDP-1" {
     position x=0 y=0
 }
 
-// ── Input Settings ───────────────────────────────────────────────────────────
 input {
     focus-follows-mouse
 
@@ -33,7 +28,6 @@ input {
         repeat-rate 30
         xkb {
             layout "us"
-            // options "caps:escape"
         }
         numlock
     }
@@ -67,7 +61,6 @@ cursor {
     hide-after-inactive-ms 5000
 }
 
-// ── Workspaces & Overview ────────────────────────────────────────────────────
 overview {
     backdrop-color "#1E1E2E"
     workspace-shadow {
@@ -85,15 +78,12 @@ workspace "7"
 workspace "8"
 workspace "9"
 
-// ── Binds ─────────────────────────────────────────────────────
 binds {
-    // Application Shortcuts
     MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn "foot"; }
     MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn "wofi" "--show" "drun"; }
-    MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn-sh "firefox"; }
-    MOD+SHIFT+Q { spawn-sh "~/git/niri-dotfiles/scripts/powermenu.sh"; }
+    MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn "firefox"; }
+    MOD+SHIFT+Q hotkey-overlay-title="Open powermenu" { spawn "wlogout"; }
 
-    // Media Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -105,7 +95,6 @@ binds {
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
-    // Window Management
     MOD+Q { close-window; }
 
     MOD+H { focus-column-left; }
@@ -133,7 +122,6 @@ binds {
     MOD+HOME { focus-column-first; }
     MOD+END  { focus-column-last; }
 
-    // Monitor Management
     MOD+CTRL+LEFT  { focus-monitor-left; }
     MOD+CTRL+RIGHT { focus-monitor-right; }
     MOD+CTRL+UP    { focus-monitor-up; }
@@ -152,7 +140,6 @@ binds {
     MOD+SHIFT+CTRL+K { move-column-to-monitor-up; }
     MOD+SHIFT+CTRL+J { move-column-to-monitor-down; }
 
-    // Workspace Management
     MOD+ESCAPE hotkey-overlay-title="Open Overview" repeat=false { toggle-overview; }
     MOD+WHEELSCROLLDOWN cooldown-ms=100 { focus-workspace-down; }
     MOD+WHEELSCROLLUP   cooldown-ms=100 { focus-workspace-up; }
@@ -163,7 +150,6 @@ binds {
     MOD+CTRL+WHEELSCROLLRIGHT { move-column-right; }
     MOD+CTRL+WHEELSCROLLLEFT  { move-column-left; }
 
-    // Numbered Workspaces
     MOD+1 { focus-workspace 1; }
     MOD+2 { focus-workspace 2; }
     MOD+3 { focus-workspace 3; }
@@ -186,7 +172,6 @@ binds {
 
     MOD+TAB { focus-workspace-previous; }
 
-    // Layout Controls
     MOD+C        { center-column; }
     MOD+CTRL+C   { center-visible-columns; }
     MOD+BRACKETLEFT  { set-column-width "-10%"; }
@@ -196,13 +181,11 @@ binds {
     MOD+CTRL+WHEELSCROLLDOWN { set-window-height "-5%"; }
     MOD+CTRL+WHEELSCROLLUP   { set-window-height "+5%"; }
 
-    // Window Modes
     MOD+V        { toggle-window-floating; }
     Mod+Shift+V  { switch-focus-between-floating-and-tiling; }
     MOD+SHIFT+F  { fullscreen-window; }
     MOD+F        { maximize-column; }
 
-    // Utils
     MOD+SHIFT+S { spawn-sh "~/.local/bin/screenshot.sh"; }
     PRINT       { screenshot; }
     SHIFT+PRINT { screenshot-screen write-to-disk=true; }
@@ -211,7 +194,6 @@ binds {
     Mod+Shift+E { quit; }
 }
 
-// ── Window Switcher Override ───────────────────────────────────────
 recent-windows {
     binds {
         Alt+Tab         { next-window scope="output"; }
@@ -221,7 +203,6 @@ recent-windows {
     }
 }
 
-// ── Layout Style ─────────────────────────────────────────────────────────────
 layout {
     gaps 3
     center-focused-column "never"
@@ -256,7 +237,7 @@ layout {
     }
 }
 
-// ── Animations ────────────────────────────────────────────────────────────────
+
 animations {
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
@@ -290,7 +271,6 @@ animations {
     }
 }
 
-// ── Environment Variables ─────────────────────────────────────────────────────
 environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -316,7 +296,6 @@ environment {
     LIBVA_DRIVER_NAME "iHD"
 }
 
-// ── Layer Rules ───────────────────────────────────────────────────────────────
 layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
@@ -358,7 +337,6 @@ layer-rule {
     }
 }
 
-// ── Window Rules ──────────────────────────────────────────────────────────────
 window-rule {
     geometry-corner-radius 13
     clip-to-geometry true
@@ -436,7 +414,6 @@ window-rule {
     draw-border-with-background false
 }
 
-// ── Debug Configuration ──────────────────────────────────────────────────────
 debug {
     honor-xdg-activation-with-invalid-serial
 }

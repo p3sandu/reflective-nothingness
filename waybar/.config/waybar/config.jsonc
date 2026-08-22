@@ -6,7 +6,6 @@
   "height": 24,
   "spacing": 2,
 
-  // Layouts
   "modules-left": [
     "custom/launcher",
     "niri/workspaces"
@@ -28,7 +27,6 @@
     "custom/power"
   ],
 
-  // Modules
   "custom/launcher": {
     "format": "",
     "on-click": "niri msg action toggle-overview",

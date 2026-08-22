@@ -21,30 +21,14 @@ PROMPT='%B%~%b %# '
 
 bindkey -e
 
-bindkey '^[[H'    beginning-of-line       # Home
-bindkey '^[[F'    end-of-line             # End
-bindkey '^[[3~'   delete-char             # Delete
-bindkey '^[[1;5C' forward-word            # Ctrl + Right Arrow
-bindkey '^[[1;5D' backward-word           # Ctrl + Left Arrow
-bindkey '^[[A'    up-line-or-history      # Up Arrow
-bindkey '^[[B'    down-line-or-history    # Down Arrow
-bindkey '^R'      history-incremental-search-backward # Ctrl + R
-
-export EDITOR=nvim
-export winhome="/run/media/user/OS/Users/cat/"
-export http_proxy="http://192.168.42.129:9090"
-export https_proxy="http://192.168.42.129:9090"
-export HTTP_PROXY="http://192.168.42.129:9090"
-export HTTPS_PROXY="http://192.168.42.129:9090"
-
-alias uns='unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY'
-alias neo='fastfetch --config examples/13.jsonc'
-alias autorm='sudo pacman -Rns $(pacman -Qdtq)'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias gall='git add . && git commit -m "" --allow-empty-message && git push -u origin main'
-alias p='proxychains -q'
-# alias notes="ln -s /run/media/user/OS/Users/cat/Desktop/tryintnottousemybrain/notes ~/notes && cd ~/notes"
+bindkey '^[[H'    beginning-of-line       # home
+bindkey '^[[F'    end-of-line             # end
+bindkey '^[[3~'   delete-char             # delete
+bindkey '^[[1;5C' forward-word            # ctrl + right arrow
+bindkey '^[[1;5D' backward-word           # ctrl + left arrow
+bindkey '^[[A'    up-line-or-history      # up arrow
+bindkey '^[[B'    down-line-or-history    # down arrow
+bindkey '^R'      history-incremental-search-backward # ctrl + r
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -59,3 +43,6 @@ function zvm_after_init() {
     ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 }
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
+fi
