@@ -19,6 +19,9 @@ zstyle ':completion:*' menu select
 
 PROMPT='%B%~%b %# '
 
+typeset -U path PATH
+path=(~/.local/bin $path)
+
 bindkey -v
 
 # bindkey '^[[H'    beginning-of-line       # home

@@ -149,7 +149,7 @@
 
   "custom/screenshot": {
     "format": "󰹑",
-    "on-click": "hyprshot -m region --raw | satty --filename -",
+    "on-click": "/home/user/.local/bin/screenshot.sh",
     "tooltip": true,
     "tooltip-format": "take screenshot"
   },
