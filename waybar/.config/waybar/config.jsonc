@@ -103,7 +103,7 @@
       "custom/controls-handle",
       "backlight",
       "pulseaudio",
-      "idle_inhibitor",
+      // "idle_inhibitor",
       "custom/screenshot",
       "custom/clipboard",
       "custom/nightmode"
