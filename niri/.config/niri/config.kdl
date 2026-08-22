@@ -91,7 +91,7 @@ binds {
     MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn "foot"; }
     MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn "wofi" "--show" "drun"; }
     MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn-sh "firefox"; }
-    MOD+E hotkey-overlay-title="File Manager: Thunar" { spawn-sh "thunar"; }
+    MOD+SHIFT+Q { spawn-sh "~/git/niri-dotfiles/scripts/powermenu.sh"; }
 
     // Media Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
