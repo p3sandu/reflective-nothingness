@@ -1,0 +1,23 @@
+set selection-clipboard clipboard
+
+set guioptions ""
+
+set recolor true
+set recolor-keephue true
+
+set default-bg                  "#1F1F28"
+set default-fg                  "#DCD7BA"
+
+set recolor-lightcolor          "#1F1F28"
+set recolor-darkcolor           "#DCD7BA"
+
+set statusbar-bg                "#16161D"
+set statusbar-fg                "#C8C093"
+set inputbar-bg                 "#2A2A37"
+set inputbar-fg                 "#E6C384"
+set notification-error-bg       "#E82424"
+set notification-error-fg       "#DCD7BA"
+set notification-warning-bg     "#FF9E3B"
+set notification-warning-fg     "#16161D"
+set highlight-color             "#2D4F67"
+set highlight-active-color      "#7E9CD8"

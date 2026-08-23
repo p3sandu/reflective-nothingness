@@ -80,7 +80,7 @@ workspace "9"
 
 binds {
     MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn "foot"; }
-    MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn "wofi" "--show" "drun"; }
+    MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn-sh "pgrep wofi || wofi --show drun"; }
     MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn "firefox"; }
     MOD+SHIFT+Q hotkey-overlay-title="Open powermenu" { spawn "wlogout"; }
 
@@ -240,34 +240,34 @@ layout {
 
 animations {
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
     window-open {
-        duration-ms 200
-        curve "ease-out-quad"
+        duration-ms 150
+        curve "ease-out-cubic"
     }
     window-close {
-        duration-ms 200
+        duration-ms 120
         curve "ease-out-cubic"
     }
     horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
     window-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1100 epsilon=0.0001
     }
     window-resize {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
     config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+        spring damping-ratio=0.8 stiffness=1400 epsilon=0.001
     }
     screenshot-ui-open {
-        duration-ms 300
+        duration-ms 150
         curve "ease-out-quad"
     }
     overview-open-close {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
 }
 
@@ -332,7 +332,7 @@ layer-rule {
 layer-rule {
     match namespace="^wofi$"
     background-effect {
-        blur true
+        blur false
         xray false
     }
 }
@@ -341,6 +341,7 @@ window-rule {
     geometry-corner-radius 13
     clip-to-geometry true
 }
+
 window-rule {
     exclude app-id=r#"^mako$"#
     geometry-corner-radius 0
@@ -349,7 +350,7 @@ window-rule {
         on
     }
     background-effect {
-        xray false
+        xray true
         blur true
         noise 0.05
         saturation 3

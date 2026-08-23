@@ -192,19 +192,19 @@
   "temperature": {
     "critical-threshold": 80,
     "format": " {temperatureC}°C",
-    "on-click": "exec foot btop"
+    "on-click": "exec foot -m btop"
   },
 
   "cpu": {
     "interval": 10,
     "format": " {usage}%",
-    "on-click": "exec foot btop"
+    "on-click": "exec foot -m btop"
   },
 
   "memory": {
     "interval": 10,
     "format": " {percentage}%",
-    "on-click": "exec foot btop"
+    "on-click": "exec foot -m btop"
   },
 
   "custom/power": {
