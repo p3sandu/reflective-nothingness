@@ -186,7 +186,8 @@
     "format-plugged": "󰚥 {capacity}%",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip": true,
-    "tooltip-format": "{timeTo} left ({capacity}%)"
+    "tooltip-format": "{timeTo} left ({capacity}%)",
+    "on-click": "exec auto-cpufreq-gtk"
   },
 
   "temperature": {

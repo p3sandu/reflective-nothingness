@@ -5,12 +5,12 @@ config-notification {
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/wallhaven-g7xrrd.jpg"
+spawn-at-startup "batsignal" "-w" "40" "-c" "30" "-d" "20" "-p"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
-spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/wallhaven-g7xrrd.jpg"
-spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-spawn-at-startup "batsignal" "-w" "40" "-c" "30" "-d" "20" "-p"
 
 output "eDP-1" {
     mode "1920x1080@60.002"
@@ -84,16 +84,16 @@ binds {
     MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn "firefox"; }
     MOD+SHIFT+Q hotkey-overlay-title="Open powermenu" { spawn "wlogout"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+1%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%-"; }
 
     MOD+Q { close-window; }
 
@@ -361,6 +361,7 @@ window-rule {
     match app-id=r#"^librewolf$"#
     match app-id=r#"^firefox$"#
     match app-id=r#"^brave-browser$"#
+    open-maximized true
     open-on-workspace "3"
 }
 
@@ -413,6 +414,7 @@ window-rule {
 window-rule {
     match app-id="foot"
     draw-border-with-background false
+    open-maximized true
 }
 
 debug {
