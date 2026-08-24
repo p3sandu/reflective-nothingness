@@ -9,7 +9,7 @@ on-button-middle=dismiss-group
 on-button-right=dismiss
 on-notify=exec mpv --volume=100 /usr/share/sounds/freedesktop/stereo/message.oga
 
-font=JetBrainsMono Nerd Font 10
+font=CaskaydiaMono Nerd Font 10
 background-color=#1f1f28e6
 text-color=#dcd7ba
 
@@ -37,4 +37,4 @@ default-timeout=10000
 [urgency=critical]
 border-color=#e82424
 text-color=#e6c384
-default-timeout=0
+default-timeout=30000
