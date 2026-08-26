@@ -187,7 +187,7 @@
         "format-plugged": "󰚥 {capacity}%",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "tooltip": true,
-        "tooltip-format": "{timeTo} left ({capacity}%)",
+        "tooltip-format": "{timeTo} left ({capacity}%)\nClick to open auto-cpufreq",
         "on-click": "exec auto-cpufreq-gtk"
     },
 

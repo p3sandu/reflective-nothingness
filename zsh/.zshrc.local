@@ -1,4 +1,4 @@
-export EDITOR=nvim
+export EDITOR="nvim"
 export winhome="/run/media/user/OS/Users/cat/"
 export http_proxy="http://192.168.42.129:9090"
 export https_proxy="http://192.168.42.129:9090"
