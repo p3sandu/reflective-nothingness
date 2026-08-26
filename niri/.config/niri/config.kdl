@@ -7,7 +7,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/wallhaven-g7xrrd.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/git/niri-dotfiles/walls/7d5ad.jpg"
 spawn-at-startup "batsignal" "-w" "40" "-c" "30" "-d" "20" "-p"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 spawn-sh-at-startup "waybar"
@@ -332,19 +332,13 @@ layer-rule {
 layer-rule {
     match namespace="^wofi$"
     background-effect {
-        blur false
+        blur true
         xray false
     }
 }
 
 window-rule {
-    geometry-corner-radius 13
-    clip-to-geometry true
-}
-
-window-rule {
-    exclude app-id=r#"^mako$"#
-    geometry-corner-radius 0
+    geometry-corner-radius 10
     clip-to-geometry true
     shadow {
         on
@@ -358,9 +352,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^librewolf$"#
     match app-id=r#"^firefox$"#
-    match app-id=r#"^brave-browser$"#
     open-maximized true
     open-on-workspace "3"
 }

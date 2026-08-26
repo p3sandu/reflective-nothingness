@@ -1,6 +1,7 @@
 -- ============================================================
 -- SECTION 1: SETTINGS
 -- ============================================================
+vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 do
 	-- Enable faster startup by caching compiled Lua modules
 	vim.loader.enable()
@@ -664,7 +665,10 @@ do
 	-- [[ Snippet Engine ]]
 
 	vim.pack.add({ { src = gh("L3MON4D3/LuaSnip"), version = vim.version.range("2.*") } })
-	require("luasnip").setup({})
+	require("luasnip").setup({
+		region_check_events = "InsertEnter",
+		delete_check_events = "TextChanged,InsertLeave",
+	})
 
 	-- `friendly-snippets` contains a variety of premade snippets.
 	--    See the README about individual language/framework/plugin snippets:

@@ -9,7 +9,7 @@ on-button-middle=dismiss-group
 on-button-right=dismiss
 on-notify=exec mpv --volume=100 /usr/share/sounds/freedesktop/stereo/message.oga
 
-font=CaskaydiaMono Nerd Font 10
+font=JetBrainsMono Nerd Font 10
 background-color=#1f1f28e6
 text-color=#dcd7ba
 

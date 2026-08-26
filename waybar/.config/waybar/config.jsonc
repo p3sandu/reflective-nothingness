@@ -1,221 +1,222 @@
 {
-  "reload_style_on_change": true,
-  "toggle": true,
-  "layer": "top",
-  "position": "top",
-  "height": 24,
-  "spacing": 2,
+    "reload_style_on_change": true,
+    "toggle": true,
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 2,
 
-  "modules-left": [
-    "custom/launcher",
-    "niri/workspaces"
-    // "cava",
-    // "mpris"
-  ],
+    "modules-left": [
+        "custom/launcher",
+        "niri/workspaces"
+        // "cava",
+        // "mpris"
+    ],
 
-  "modules-center": [
-    "clock"
-  ],
+    "modules-center": [
+        "clock"
+    ],
 
-  "modules-right": [
-    "group/controls",
-    "temperature",
-    "cpu",
-    "memory",
-    "battery",
-    "tray",
-    "custom/power"
-  ],
+    "modules-right": [
+        "group/controls",
+        "temperature",
+        "cpu",
+        "memory",
+        "battery",
+        "tray",
+        "custom/power"
+    ],
 
-  "custom/launcher": {
-    "format": "",
-    "on-click": "niri msg action toggle-overview",
-    "tooltip": false
-  },
-
-  "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "○",
-      "active": "●"
-    }
-  },
-
-  "cava": {
-    "framerate": 60,
-    "autosens": 1,
-    "sensitivity": 1,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "hide_on_silence": true,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": true,
-    "waves": false,
-    "noise_reduction": 0.99,
-    "input_delay": 2,
-    "format-icons": [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
-
-  "mpris": {
-    "format": "{player_icon} {title:.30}",
-    "player-icons": {
-      "default": "󰎇",
-      "spotify": "󰓇",
-      "mpv": "󰐊"
+    "custom/launcher": {
+        "format": "",
+        "on-click": "niri msg action toggle-overview",
+        "tooltip": false
     },
-    "status-icons": {
-      "paused": "󰏤"
-    }
-  },
 
-  "clock": {
-    "format": "{:%H:%M - %A, %B %d}",
-    "format-alt": "󰥔 {:%H:%M  󰃮 %d %b}",
-    "tooltip-format": "<span font='JetBrainsMono Nerd Font 10'><tt>{calendar}</tt></span>",
-    "timezones": ["Asia/Colombo"],
-    "calendar": {
-      "mode": "month",
-      "on-scroll": 1
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "active": "●",
+            "focused": "●"
+        }
     },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
 
-  "group/controls": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "controls-child",
-      "transition-left-to-right": false
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "sensitivity": 1,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "hide_on_silence": true,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": true,
+        "waves": false,
+        "noise_reduction": 0.99,
+        "input_delay": 2,
+        "format-icons": [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "actions": {
+            "on-click-right": "mode"
+        }
     },
-    "modules": [
-      "custom/controls-handle",
-      "backlight",
-      "pulseaudio",
-      // "idle_inhibitor",
-      "custom/screenshot",
-      "custom/clipboard",
-      "custom/nightmode"
-    ]
-  },
 
-  "custom/controls-handle": {
-    "format": "",
-    "tooltip": false
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
-
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%  {format_source}",
-    "format-muted": "󰖁 Muted  {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": "  Muted",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["󰕿", "󰖀", "󰕾"]
+    "mpris": {
+        "format": "{player_icon} {title:.30}",
+        "player-icons": {
+            "default": "󰎇",
+            "spotify": "󰓇",
+            "mpv": "󰐊"
+        },
+        "status-icons": {
+            "paused": "󰏤"
+        }
     },
-    "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-  },
 
-  "custom/screenshot": {
-    "format": "󰹑",
-    "on-click": "/home/user/.local/bin/screenshot.sh",
-    "tooltip": true,
-    "tooltip-format": "take screenshot"
-  },
+    "clock": {
+        "format": "{:%H:%M - %A, %B %d}",
+        "format-alt": "󰥔 {:%H:%M  󰃮 %d %b}",
+        "tooltip-format": "<span font='JetBrainsMono Nerd Font 10'><tt>{calendar}</tt></span>",
+        "timezones": ["Asia/Colombo"],
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
 
-  "custom/clipboard": {
-    "format": "",
-    "on-click": "cliphist list | wofi --dmenu | cliphist decode | wl-copy",
-    "tooltip": true,
-    "tooltip-format": "middle click: wipe clipboard",
-    "on-click-middle": "cliphist wipe"
-  },
+    "group/controls": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "controls-child",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/controls-handle",
+            "backlight",
+            "pulseaudio",
+            // "idle_inhibitor",
+            "custom/screenshot",
+            "custom/clipboard",
+            "custom/nightmode"
+        ]
+    },
 
-  "custom/nightmode": {
-    "format": "󰖔",
-    "tooltip": true,
-    "tooltip-format": "left: 4000k | mid: 5000k | right: 6000k | scroll: off",
-    "on-click": "pkill wlsunset || wlsunset -T 4500",
-    "on-click-middle": "pkill wlsunset || wlsunset -T 5000",
-    "on-click-right": "pkill wlsunset || wlsunset -T 6000",
-    "on-scroll-up": "pkill wlsunset",
-    "interval": "once"
-  },
+    "custom/controls-handle": {
+        "format": "",
+        "tooltip": false
+    },
 
-  "custom/cpu-governor": {
-    "format": "󰾆 {}",
-    "exec": "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
-    "interval": 5
-  },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
 
-  "battery": {
-    "states": { "critical": 10 },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰚥 {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "tooltip": true,
-    "tooltip-format": "{timeTo} left ({capacity}%)",
-    "on-click": "exec auto-cpufreq-gtk"
-  },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+    },
 
-  "temperature": {
-    "critical-threshold": 80,
-    "format": " {temperatureC}°C",
-    "on-click": "exec foot -m btop"
-  },
+    "pulseaudio": {
+        "format": "{icon} {volume}%  {format_source}",
+        "format-muted": "󰖁 Muted  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "  Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    },
 
-  "cpu": {
-    "interval": 10,
-    "format": " {usage}%",
-    "on-click": "exec foot -m btop"
-  },
+    "custom/screenshot": {
+        "format": "󰹑",
+        "on-click": "/home/user/.local/bin/screenshot.sh",
+        "tooltip": true,
+        "tooltip-format": "take screenshot"
+    },
 
-  "memory": {
-    "interval": 10,
-    "format": " {percentage}%",
-    "on-click": "exec foot -m btop"
-  },
+    "custom/clipboard": {
+        "format": "",
+        "on-click": "cliphist list | wofi --dmenu | cliphist decode | wl-copy",
+        "tooltip": true,
+        "tooltip-format": "middle click: wipe clipboard",
+        "on-click-middle": "cliphist wipe"
+    },
 
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "wlogout",
-    "tooltip": false
-  },
+    "custom/nightmode": {
+        "format": "󰖔",
+        "tooltip": true,
+        "tooltip-format": "left: 4000k | mid: 5000k | right: 6000k | scroll: off",
+        "on-click": "pkill wlsunset || wlsunset -T 4500",
+        "on-click-middle": "pkill wlsunset || wlsunset -T 5000",
+        "on-click-right": "pkill wlsunset || wlsunset -T 6000",
+        "on-scroll-up": "pkill wlsunset",
+        "interval": "once"
+    },
 
-  "tray": {
-    "icon-size": 14,
-    "spacing": 6
-  }
+    "custom/cpu-governor": {
+        "format": "󰾆 {}",
+        "exec": "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
+        "interval": 5
+    },
+
+    "battery": {
+        "states": { "critical": 10 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "{timeTo} left ({capacity}%)",
+        "on-click": "exec auto-cpufreq-gtk"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "on-click": "exec foot -m btop"
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "on-click": "exec foot -m btop"
+    },
+
+    "memory": {
+        "interval": 10,
+        "format": " {percentage}%",
+        "on-click": "exec foot -m btop"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 6
+    }
 }
