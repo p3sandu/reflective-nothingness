@@ -56,7 +56,8 @@ gestures {
 }
 
 cursor {
-    xcursor-size 24
+    xcursor-theme "Breeze_Light"
+    xcursor-size 25
     hide-when-typing
     hide-after-inactive-ms 5000
 }
