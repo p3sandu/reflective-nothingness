@@ -1,68 +1,65 @@
 @import "./colors.css";
 
 * {
-    font-family: "jetbrainsmono nerd font propo", "IPAGothic";
-    font-size: 11px;
-    font-weight: 600;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 9.5px;
+    font-weight: 700;
     border: none;
     border-radius: 0;
     min-height: 0;
 }
 
-window#waybar,
+window#waybar {
+    background-color: @color0;
+    color: @foreground;
+    border-bottom: 1px solid @color8;
+}
+
 .modules-left,
 .modules-center,
 .modules-right {
     background-color: transparent;
-    color: @foreground;
-    border: none;
 }
 
 #custom-launcher,
 #workspaces,
-#cava,
-#mpris,
+#window,
 #clock,
 #backlight,
 #pulseaudio,
-#idle_inhibitor,
-#custom-cpu-governor,
 #custom-nightmode,
 #custom-clipboard,
 #custom-screenshot,
 #battery,
-#temperature,
-#cpu,
 #memory,
 #custom-power,
 #custom-controls-handle,
 #tray {
-    background-color: @color0;
-    border: 1px solid @color8;
-    border-radius: 8px;
-    padding: 2px 8px;
-    margin: 3px 2px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0 4px;
+    margin: 0;
     color: @foreground;
 }
 
 #group-controls {
-    background-color: @color0;
-    border: 1px solid @color8;
-    border-radius: 8px;
-    margin: 3px 2px;
-    padding: 0 0;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 #group-controls * {
     background-color: transparent;
     border: none;
     margin: 0;
+    padding: 0 3px;
 }
 
 #custom-launcher {
     color: @color4;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 0 6px 0 8px;
 }
 
 #workspaces {
@@ -72,52 +69,69 @@ window#waybar,
 #workspaces button {
     color: @color7;
     padding: 0 5px;
-    border-radius: 5px;
     margin: 2px 1px;
+    border-radius: 2px;
 }
 
-#workspaces button.active {
-    color: @color3;
-    font-weight: bold;
-    background-color: @color8;
+/* Active Workspace Accent Block */
+#workspaces button.active,
+#workspaces button.focused {
+    color: @color0;
+    background-color: @color4;
+    font-weight: 800;
 }
 
 #workspaces button.urgent {
-    color: @color1;
+    color: @color0;
+    background-color: @color1;
+}
+
+/* Active Window Title */
+#window {
+    color: @color7;
+    padding-left: 8px;
+    border-left: 1px solid @color8;
+    margin-left: 4px;
 }
 
 #clock {
-    /* color: @color3; */
-    font-weight: bold;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-weight: 700;
+    padding: 0 6px;
 }
 
-#custom-power { 
-    color: @color1; 
-    padding-left: 8px;
-    padding-right: 8px;
+/* Battery State Color Highlights */
+#battery.charging,
+#battery.plugged {
+    color: @color2;
+}
+
+#battery.critical {
+    color: @color1;
+}
+
+#custom-power {
+    color: @color1;
+    padding: 0 8px 0 6px;
 }
 
 #custom-power:hover,
 #battery:hover,
 #pulseaudio:hover,
-#cpu:hover,
 #memory:hover,
-#temperature:hover,
 #custom-launcher:hover,
 #workspaces button:hover {
     background-color: @color8;
-    color: @color11;
+    color: @foreground;
 }
 
 tooltip {
     background: @color0;
     border: 1px solid @color8;
-    border-radius: 8px;
+    border-radius: 2px;
 }
 
 tooltip label {
     color: @foreground;
-    padding: 4px 8px;
+    padding: 2px 5px;
+    font-size: 9px;
 }
