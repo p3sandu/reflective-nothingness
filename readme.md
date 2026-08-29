@@ -1,4 +1,4 @@
-theme=kanagawa-dragon
+colorscheme=kanagawa-dragon
 
 ![](./prev/z.png)
 
