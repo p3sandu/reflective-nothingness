@@ -19,6 +19,8 @@
     "modules-right": [
         "group/controls",
         "memory",
+        "network",
+        "bluetooth",
         "battery",
         "tray",
         "custom/power"
@@ -88,7 +90,7 @@
     },
 
     "custom/controls-handle": {
-        "format": "",
+        "format": "󰅁",
         "tooltip": false
     },
 
@@ -153,9 +155,24 @@
         "on-click": "exec auto-cpufreq-gtk"
     },
 
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "exec foot -m nmtui"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-connected-battery": " {device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+
     "memory": {
-        "interval": 10,
-        "format": " {percentage}%",
+        "interval": 3000,
+        "format": "",
         "on-click": "exec foot -m btop"
     },
 

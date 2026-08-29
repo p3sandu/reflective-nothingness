@@ -32,15 +32,34 @@ window#waybar {
 #custom-screenshot,
 #battery,
 #memory,
+#network,
+#bluetooth,
 #custom-power,
 #custom-controls-handle,
 #tray {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    padding: 0 4px;
+    padding: 0 5px;
     margin: 0;
     color: @foreground;
+}
+
+#network,
+#bluetooth,
+#battery,
+#memory,
+#custom-power,
+#custom-controls-handle,
+#custom-screenshot,
+#custom-clipboard,
+#custom-nightmode {
+    font-size: 11.5px;
+}
+
+#backlight,
+#pulseaudio {
+    font-size: 10.5px;
 }
 
 #group-controls {
@@ -59,6 +78,7 @@ window#waybar {
 
 #custom-launcher {
     color: @color4;
+    font-size: 11px;
     padding: 0 6px 0 8px;
 }
 
@@ -73,7 +93,6 @@ window#waybar {
     border-radius: 2px;
 }
 
-/* Active Workspace Accent Block */
 #workspaces button.active,
 #workspaces button.focused {
     color: @color0;
@@ -86,7 +105,6 @@ window#waybar {
     background-color: @color1;
 }
 
-/* Active Window Title */
 #window {
     color: @color7;
     padding-left: 8px;
@@ -116,8 +134,10 @@ window#waybar {
 
 #custom-power:hover,
 #battery:hover,
-#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
 #memory:hover,
+#pulseaudio:hover,
 #custom-launcher:hover,
 #workspaces button:hover {
     background-color: @color8;
