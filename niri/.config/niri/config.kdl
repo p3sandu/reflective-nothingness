@@ -76,7 +76,7 @@ workspace "4"
 
 binds {
     MOD+RETURN hotkey-overlay-title="Open Terminal" { spawn "foot"; }
-    MOD+D hotkey-overlay-title="App Launcher: Wofi" { spawn-sh "pgrep wofi || wofi --show drun"; }
+    MOD+D hotkey-overlay-title="App Launcher: Fuzzel" { spawn-sh "pgrep fuzzel || fuzzel"; }
     MOD+B hotkey-overlay-title="Open Browser: Librewolf" { spawn "firefox"; }
     MOD+SHIFT+Q hotkey-overlay-title="Open powermenu" { spawn "wlogout"; }
 
