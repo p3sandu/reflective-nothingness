@@ -62,6 +62,22 @@ window#waybar {
     font-size: 10.5px;
 }
 
+#custom-power:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#memory:hover,
+#pulseaudio:hover,
+#custom-launcher:hover,
+#custom-screenshot:hover,
+#custom-clipboard:hover,
+#custom-nightmode:hover,
+#backlight:hover,
+#workspaces button:hover {
+    background-color: @color8;
+    color: @foreground;
+}
+
 #group-controls {
     background-color: transparent;
     border: none;
