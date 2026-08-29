@@ -2,6 +2,6 @@
 
 if pgrep -x "waybar" > /dev/null; then
     killall waybar
-    ~/git/niri-dotfiles/waybar/.config/waybar/scripts/launch.sh > /dev/null 2>&1 &
 fi
+~/git/niri-dotfiles/waybar/.config/waybar/scripts/launch.sh > /dev/null 2>&1 &
 # systemctl --user restart waybar.service

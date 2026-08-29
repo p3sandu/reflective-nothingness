@@ -1,0 +1,44 @@
+# coded by ai
+# just in case if you don't wanna do it manually
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.local/bin"
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "==> Stowing config packages into ~/.config..."
+CONFIG_PACKAGES=(
+    foot
+    fuzzel
+    mako
+    niri
+    nvim
+    tmux
+    waybar
+    wlogout
+    zathura
+    zsh
+)
+
+for pkg in "${CONFIG_PACKAGES[@]}"; do
+    if [ -d "$DOTFILES_DIR/$pkg" ]; then
+        echo " -> Stowing $pkg..."
+        stow -R --target="$HOME/.config/$pkg" --dir="$DOTFILES_DIR" "$pkg"
+    else
+        echo " -> Skipping $pkg (directory not found)"
+    fi
+done
+
+echo "==> Stowing scripts into ~/.local/bin..."
+if [ -d "$DOTFILES_DIR/scripts" ]; then
+    chmod +x "$DOTFILES_DIR/scripts"/* 2>/dev/null || true
+    stow -R --target="$HOME/.local/bin" --dir="$DOTFILES_DIR" scripts
+    echo " -> Scripts stowed successfully!"
+else
+    echo " -> Skipping scripts (directory not found)"
+fi
+
+echo "==> Done"
