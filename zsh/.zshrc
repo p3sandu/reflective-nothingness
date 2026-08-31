@@ -1,3 +1,28 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+CASE_SENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
+
+zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' frequency 13
+# ENABLE_CORRECTION="true"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+export ARCHFLAGS="-arch $(uname -m)"
+
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -14,10 +39,10 @@ setopt NO_BEEP
 
 autoload -Uz compinit
 compinit -C
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# zstyle ':completion:*' menu select
 
-PROMPT='%B%~%b %# '
+# PROMPT='%B%~%b %# '
 
 typeset -U path PATH
 path=(~/.local/bin $path)
